@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Codebreaker</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <style type="text/css">
+    .blackbox {
+      background-color: black;
+    }
+
+    #grid tr {
+      height: 50px;
+    }
+
+    #grid td {
+      border-color: #000000;
+      border-width: 2px;
+      border-style: solid;
+      /*width: 50px;
+      height: 50px;*/
+    }
+
+    .number {
+      position: absolute;
+      margin-top: -15px;
+    }
+
+    .letter {
+      text-align: center;
+    }
+    </style>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="container">
+    <div class="row">
+      <input type="text" id="filename" />
+      <button id="do_filename">Process Image</button>
+      </div>
+      <div class="row">
+        <textarea id="crossword_data" rows="10" cols="100"></textarea>
+        <br>
+        <button id="do_structure">Process Structure</button>
+      </div>
+      <table class="table" id="grid">
+
+      </table>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

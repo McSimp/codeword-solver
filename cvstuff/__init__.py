@@ -1,7 +1,7 @@
 import cv2
 import numpy as np
 
-DEBUG = False
+DEBUG = True
 
 def exit():
     if DEBUG:
@@ -193,7 +193,7 @@ class CrosswordRecogniser:
             return
         for cnt in contours:
             mom = cv2.moments(cnt)
-            centre = cr.compute_contour_centre(cnt)
+            centre = self.compute_contour_centre(cnt)
             cv2.circle(img, centre, 4, (0,0,255), -1)
 
     def img_data_top_half(self, img):
@@ -341,6 +341,9 @@ class CrosswordRecogniserInterface:
     def __init__(self):
         self.cr = CrosswordRecogniser()
 
+    def exit(self):
+        exit()
+
     def solve_image(self, image_path):
         # Read image
         img = self.cr.scale(self.cr.read_image(image_path))
@@ -443,6 +446,8 @@ class CrosswordRecogniserInterface:
         model, sorted_cells, width_height = self.cr.train_knn(img_warped_copy, potential_solution_boxes)
 
         # Foreach row in the structure, then foreach column, detect the number
+        distances = []
+
         for r in range(len(structure)):
             row = structure[r]
             for c in range(len(row)):
